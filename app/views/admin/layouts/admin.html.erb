@@ -12,6 +12,7 @@
     <title><%= content_for?(:title) ? yield(:title) : Rails.application.secrets[:site_title] %></title>
 
     <%= stylesheet_link_tag 'application_back', media: 'all' %>
+    <%= javascript_include_tag 'application_back' %>
     <%= csrf_meta_tags %>
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
@@ -29,8 +30,6 @@
       <%= render partial: 'admin/shared/footer' %>
     </div>
   </body>
-
-  <%= javascript_include_tag 'application_back' %>
 
   <% if content_for?(:added_scripts) %>
     <%= yield :added_scripts %>

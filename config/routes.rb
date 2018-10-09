@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   # Back admin routes start
   namespace :admin do
     resources :users
+    resources :jugglers
 
     # Admin root
     root to: 'application#index'

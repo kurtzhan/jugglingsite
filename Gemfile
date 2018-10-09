@@ -5,7 +5,7 @@ ruby '2.4.0'
 
 # General list of gems
 gem 'rails', '5.0.2'
-gem 'pg'
+gem 'mysql2', '~> 0.3.18'
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
@@ -20,6 +20,8 @@ gem 'pundit'
 gem 'sendgrid'
 gem 'layer-handler'
 gem 'friendly_id'
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'paperclip'
 
 # Only Development env gems
 group :development do
