@@ -15,17 +15,9 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-          <%= render partial: 'shared/navigation' %>
-          <%= yield %>
-          <%= render partial: 'shared/footer' %>
-        </div>
-      </div>
-    </div>
-
+    <%= render partial: 'shared/navigation' %>
+    <%= yield %>
+    <%= render partial: 'shared/footer' %>
   </body>
 
   <%= javascript_include_tag 'application' %>
