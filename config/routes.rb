@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :jugglers
+    resources :categories
+    resources :articles
 
     # Admin root
     root to: 'application#index'

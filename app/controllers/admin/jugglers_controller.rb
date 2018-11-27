@@ -68,7 +68,7 @@ module Admin
 
     # Never trust parameters from the scary internet, only allow the white list through.
     private def juggler_params
-      params.require(:juggler).permit(:name, :description, :avatar)
+      params.require(:juggler).permit(:name, :description, :avatar, :tag_list, :displayable)
     end
   end
 end

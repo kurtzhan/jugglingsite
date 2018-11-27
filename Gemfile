@@ -22,6 +22,7 @@ gem 'layer-handler'
 gem 'friendly_id'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip'
+gem 'acts-as-taggable-on', '~> 6.0'
 
 # Only Development env gems
 group :development do
