@@ -68,7 +68,7 @@ module Admin
 
     # Never trust parameters from the scary internet, only allow the white list through.
     private def article_params
-      params.require(:article).permit(:title, :body, :category_ids => [])
+      params.require(:article).permit(:title, :is_home_page, :ordinal, :description, :body, :category_ids => [])
     end
   end
 end

@@ -1,0 +1,22 @@
+<div class="content-wrapper">
+   <div class="w-container">
+      <div class="blog-body-wrapper">
+         <div class="post-title-section">
+            <h1><%= @article.title %></h1>
+            <div class="post-info-wrapper">
+               <div class="post-info"><%= @article.created_at.to_date.to_s %></div>
+               <div class="post-info">|</div>
+               <% @article.categories.each do |category| %>
+               <%= link_to category.name, category_path(category), :class => "post-info when-link" %>
+               <% end %>
+            </div>
+         </div>
+         <div class="body-copy w-richtext">
+            <%= @article.body %>
+         </div>
+      </div>
+      <div class="button-wrapper">
+      <%= link_to "<< 所有贴子", articles_path, :class => "button w-button" %>
+      </div>
+   </div>
+</div>

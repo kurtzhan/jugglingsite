@@ -1,9 +1,11 @@
     <div class="navigation-bar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
-    <div class="w-container"><a class="site-name-link w-nav-brand" href="#">
-      <div class="site-name">Lamar</div></a>
+    <div class="w-container" id="header">
+        <%= link_to root_path, :class => "site-name-link w-nav-brand" do %>
+          <div class="site-name">杂耍</div>
+        <% end %>
         <nav class="navigation-menu w-nav-menu" role="navigation">
-          <a class="nav-link w-nav-link w--current" href="/" style="max-width: 940px;">首页</a>
-          <a class="nav-link w-nav-link" href="/all-posts" style="max-width: 940px;">贴子</a>
+          <%= link_to "首页", root_path, :class => "nav-link w-nav-link", :style => "max-width: 940px;" %>
+          <%= link_to "贴子", articles_path, :class => "nav-link w-nav-link", :style => "max-width: 940px;" %>
           <a class="nav-link w-nav-link" href="/about" style="max-width: 940px;">关于</a>
           <a class="nav-link w-nav-link" href="/contact" style="max-width: 940px;">联系我</a>
         </nav>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # Back admin routes end
 
   # Front routes start
+  resources :articles, :only => [:show, :index]
+  resources :categories, :only => [:show]
   devise_for :users, only: [:session, :registration], path: 'session',
              path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
 

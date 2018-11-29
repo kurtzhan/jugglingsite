@@ -1,0 +1,32 @@
+<div class="content-wrapper">
+   <div class="w-container">
+      <h1 class="section-header"><%= @category.name %></h1>
+      <div class="w-dyn-list">
+         <div class="w-dyn-items">
+         <% @category.articles.each do |article| %>
+            <div class="w-dyn-item">
+               <div class="post-wrapper">
+                  <div>
+                     <%= link_to article_path(article), :class => "blog-title-link w-inline-block" do %>
+                      <h1 class="blog-title"><%= article.title %> </h1>
+                     <% end %>
+                     <div class="post-info-wrapper">
+                        <div class="post-info"><%= article.created_at.to_date.to_s %></div>
+                        <div class="post-info">|</div>
+                        <% article.categories.each do |category| %>
+                        <%= link_to category.name, category_path(category), :class => "post-info when-link w--current" %>
+                        <% end %>
+                     </div>
+                     <p class="post-summary"><%= article.description %></p>
+                     <%= link_to "阅读全文 >>", article_path(article), :class => "button-round w-button" %>
+                  </div>
+               </div>
+            </div>         
+         <% end %>
+         </div>
+      </div>
+      <div class="button-wrapper">
+      <%= link_to "<< 所有贴子", articles_path, :class => "button w-button" %>
+      </div>
+   </div>
+</div>
