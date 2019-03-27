@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>Gunswap Juggling</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <%= javascript_include_tag 'gunswap' %>
+  <%= stylesheet_link_tag 'gunswap' %>
+</head>
+<body>
+  <div id="controlsContainer" style="float:left;">
+    <%= render partial: "gunswap/partials/nav" %>
+    <div id="animatorMenu" class="controlDiv"></div>
+
+    <%= render partial: "gunswap/partials/pattern" %>
+    <%= render partial: "gunswap/partials/animator_controls" %>
+    <%= render partial: "gunswap/partials/explorer" %>
+    <%= render partial: "gunswap/partials/about" %>
+    <%= render partial: "gunswap/partials/state_diagram" %>
+  </div>
+  <div id="animatorCanvasContainer" style="float:left;">
+    <input class="animSlider" id="stepSlider" type="range" min="0" max="1" step=".005" onclick="window.animator.usingSlider=true;"></input>
+  </div>
+</body>
+</html>

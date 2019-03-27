@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'gunswap/animator'
+
   mount Ckeditor::Engine => '/ckeditor'
   # Back admin routes start
   namespace :admin do
