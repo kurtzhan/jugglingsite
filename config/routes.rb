@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'gunswap/animator'
+  get 'gunswap/get_patterns'
 
   mount Ckeditor::Engine => '/ckeditor'
   # Back admin routes start

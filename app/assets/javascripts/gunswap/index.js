@@ -1,5 +1,6 @@
 var twoWindow = false;
 var DEFAULT_INPUTS;
+var PATTERNS;
 
 window.onload = function () {
 
@@ -14,18 +15,18 @@ window.onload = function () {
 
 	// load default pattern
 	// only want to retrieve default inputs once, hence the global var
-	$.get("defaultPattern.yml", function(data) {
-		DEFAULT_INPUTS = YAML.parse(data);		
+	//$.get("defaultPattern.yml", function(data) {
+		// DEFAULT_INPUTS = PATTERNS.defaultPattern;		
 
-		var patternId = getURLQueryStringParameterByName("patternId");
-		if (patternId != undefined) {
-			runSavedSiteswap(patternId, false);
-		} else {
-			$('#inputsAdvanced').val(YAML.stringify(DEFAULT_INPUTS.inputs,1,1));
-			go();
-		}
+		// var patternId = getURLQueryStringParameterByName("patternId");
+		// if (patternId != undefined) {
+		// 	runSavedSiteswap(patternId, false);
+		// } else {
+		// 	$('#inputsAdvanced').val(YAML.stringify(DEFAULT_INPUTS.inputs,1,1));
+		// 	go();
+		// }
 
-	});	
+//	});	
 
 }
 
@@ -275,10 +276,20 @@ function runExample(exampleIndex) {
 }
 
 function buildExamples() {
-	$.get("examples.yml", function(data) {
-		var examples = YAML.parse(data);
-		for (var i = 0; i < examples.length; i++) {
-			$('#examplesList').append('<li><a href="#" onclick="runExample(\'' + i + '\');">' + examples[i].name + '</a></li>');
+	$.get("get_patterns", function(data) {
+		//PATTERNS = data;
+		//var examples = YAML.parse(data);
+		for (var i = 0; i < data.examples.length; i++) {
+			$('#examplesList').append('<li><a href="#" onclick="runExample(\'' + i + '\');">' + data.examples[i].name + '</a></li>');
+		}
+		DEFAULT_INPUTS = data.defaultPattern;		
+
+		var patternId = getURLQueryStringParameterByName("patternId");
+		if (patternId != undefined) {
+			runSavedSiteswap(patternId, false);
+		} else {
+			$('#inputsAdvanced').val(YAML.stringify(DEFAULT_INPUTS.inputs,1,1));
+			go();
 		}
 	});
 }
