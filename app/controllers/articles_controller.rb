@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = params[:tag].nil? ? Article.includes(:tags).all : Article.includes(:tags).tagged_with(params[:tag])
   end
 
   # GET /articles/1
@@ -14,6 +14,6 @@ class ArticlesController < ApplicationController
   end
 
   private def set_article
-    @article = Article.includes(:categories).find(params[:id])
+    @article = Article.includes(:tags).find(params[:id])
   end
 end

@@ -6,8 +6,8 @@
             <div class="post-info-wrapper">
                <div class="post-info"><%= @article.created_at.to_date.to_s %></div>
                <div class="post-info">|</div>
-               <% @article.categories.each do |category| %>
-               <%= link_to category.name, category_path(category), :class => "post-info when-link" %>
+               <% @article.tags.each do |tag| %>
+               <%= link_to tag.name, articles_path(tag: tag.name), :class => "post-info when-link" %>
                <% end %>
             </div>
          </div>
