@@ -12,7 +12,7 @@
             </div>
          </div>
          <div class="body-copy w-richtext">
-            <%= @article.body %>
+            <%= @article.body.html_safe %>
          </div>
       </div>
       <div class="button-wrapper">
