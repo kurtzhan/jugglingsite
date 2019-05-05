@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
   # Application root
   root to: 'application#home'
+  resources :tags, :only => [:index]
   # Front routes end
 end
