@@ -1,0 +1,20 @@
+.content-wrapper
+  .w-container
+    .w-dyn-list
+      .w-dyn-items
+        - @articles.each do |article|
+          .w-dyn-item
+            .post-wrapper
+              div
+                = link_to article_path(article), :class => "blog-title-link w-inline-block" do
+                  h1.blog-title
+                    = article.title
+                .post-info-wrapper
+                  .post-info= article.created_at.to_date.to_s
+                  .post-info |
+                  - article.tags.each do |tag|
+                    = link_to tag.name, articles_path(tag: tag.name), :class => "post-info when-link"
+                p.post-summary= article.description
+                = link_to "阅读全文 >>", article_path(article), :class => "button-round w-button"
+    .button-wrapper
+      = link_to "所有贴子 >>", articles_path, :class => "button w-button"

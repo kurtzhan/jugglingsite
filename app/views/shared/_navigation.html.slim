@@ -1,0 +1,12 @@
+.navigation-bar.w-nav data-animation="default" data-collapse="medium" data-contain="1" data-duration="400" 
+  #header.w-container
+    = link_to root_path, :class => "site-name-link w-nav-brand" do
+      .site-name 杂耍
+    nav.navigation-menu.w-nav-menu role="navigation" 
+      = link_to "首页", root_path, :class => "nav-link w-nav-link", :style => "max-width: 940px;"
+      = link_to "贴子", articles_path, :class => "nav-link w-nav-link", :style => "max-width: 940px;"
+      = link_to "标签", tags_path, :class => "nav-link w-nav-link", :style => "max-width: 940px;"
+      a.nav-link.w-nav-link href="/contact" style=("max-width: 940px;")  关于
+    .menu-button.w-nav-button
+      .w-icon-nav-menu
+  .w-nav-overlay data-wf-ignore="" 
