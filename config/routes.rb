@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   # Application root
   root to: 'application#home'
   resources :tags, :only => [:index]
+  get '/about' => 'about#index', as: :about
   # Front routes end
 end
