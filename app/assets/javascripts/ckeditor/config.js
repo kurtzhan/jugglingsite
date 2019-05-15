@@ -17,6 +17,7 @@ CKEDITOR.editorConfig = function( config ) {
   // The location of a script that handles file uploads.
   config.filebrowserUploadUrl = "/ckeditor/attachment_files";
   config.allowedContent = true;
+  config.extraPlugins = 'wflightbox';
   // Toolbar groups configuration.
   config.toolbar = [
     { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source'] },
