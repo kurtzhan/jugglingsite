@@ -1288,6 +1288,7 @@
 	    if (retro && url.indexOf(("https://webflow.com")) >= 0) {
 	      url = url.replace(("https://webflow.com"), ("http://formdata.webflow.com"));
 	    }
+            url = "/juggling_lab/generate_gif"
 
 	    $.ajax({
 	      url: url,
@@ -1295,13 +1296,27 @@
 	      data: payload,
 	      dataType: 'json',
 	      crossDomain: true
-	    }).done(function() {
+	    }).done(function(response) {
 	      data.success = true;
-	      afterSubmit(data);
+	      afterSubmitHack(response);
 	    }).fail(function(response, textStatus, jqXHR) {
 	      afterSubmit(data);
 	    });
 	  }
+
+    function afterSubmitHack(response){
+      if(response.error_response == ""){
+        var filename = response.filename;
+        var str = '<a class="w-inline-block w-lightbox" id="animator" href="#"><input class="button w-button" value="查看动画" type="submit"><script class="w-json" type="application/json">{ "group": "ControlGroup", "items": [{"type": "image","html": "<iframe src=\\\"/jugglinglab/' + filename + '\\\" width=\\\"400\\\" height=\\\"450\\\" scrolling=\\\"no\\\"></iframe>","width": 400,"height": 450}] }</script></a>';
+        $(str).appendTo($("form"));
+        $("#go").remove();
+        $("#animator").webflowLightBox();
+        $("#animator").trigger("tap");
+      }
+      else{
+        alert(response.error_response);
+      }
+    }
 
 	  // Submit form to MailChimp
 	  function submitMailChimp(data) {

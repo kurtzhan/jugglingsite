@@ -1,5 +1,5 @@
 doctype html
-html
+html data-wf-site="56d3f1b99aaa616f508a6253"
   head
     meta content=("text/html; charset=utf-8") http-equiv="content-type" /
     meta content="IE=edge" http-equiv="X-UA-Compatible" /
@@ -12,10 +12,10 @@ html
     title= content_for?(:title) ? yield(:title) : Rails.application.secrets[:site_title]
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
+    = javascript_include_tag 'application'
   body
     = render partial: 'shared/navigation'
     = yield
     = render partial: 'shared/footer'
-  = javascript_include_tag 'application'
   - if content_for?(:added_scripts)
     = yield :added_scripts

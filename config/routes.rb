@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   # Application root
   root to: 'application#home'
   resources :tags, :only => [:index]
-  get '/about' => 'about#index', as: :about
+  get '/juggling_lab' => 'juggling_lab#index', as: :juggling_lab
+  post '/juggling_lab/generate_gif', to: "juggling_lab#generate_gif"
   # Front routes end
 end

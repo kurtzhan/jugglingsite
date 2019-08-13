@@ -11,6 +11,31 @@
               form 
                 label for="siteswap"  Siteswap
                 input#siteswap.text-field.w-input data-name="siteswap" maxlength="256" name="siteswap" placeholder=("输入siteswap") type="text" /
-                label for="hand_movement"  手部动作
-                input#Email.text-field.w-input data-name="" maxlength="256" name="Email" placeholder=("Enter your email address") required="required" type="text" /
-                input.button.w-button data-wait=("Please wait...") type="submit" value="生成动画" /
+                label for="sel_hand_movement"  手部动作
+                select#sel_hand_movement.w-select name="sel_hand_movement"
+                  option value="default" 默认
+                  option value="(10)(32.5)." 内抛
+                  option value="(32.5)(10)." 外抛
+                  option value="(32.5)(10).(10)(32.5)." 半淋浴
+                  option value="(-25)(2.5).(25)(-2.5).(-25)(0)." 米尔斯
+                  option value="custom" 自定义
+                input#hand_movement.text-field.w-input maxlength="256" type="text" style="display:none" name="hand_movement"
+                input.button.w-button data-wait=("正在处理...") type="submit" value="生成动画" id="go"
+javascript:
+  $("#sel_hand_movement").change(function(){
+    if($("#sel_hand_movement option:selected").val() == "default"){
+      $("#hand_movement").val("");
+      $("#hand_movement").hide();
+      $("#hand_movement").removeAttr("disabled");
+    }
+    else if($("#sel_hand_movement option:selected").val() == "custom"){
+      $("#hand_movement").val("");
+      $("#hand_movement").show();
+      $("#hand_movement").removeAttr("disabled");
+    }
+    else{
+      $("#hand_movement").val($("#sel_hand_movement option:selected").val());
+      $("#hand_movement").show();
+      $("#hand_movement").attr("disabled", true);
+    }
+  });
