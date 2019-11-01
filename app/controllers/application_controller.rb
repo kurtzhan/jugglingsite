@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   layout 'novel'
 
   def home
-    
+    @books = Book.all
   end
 end

@@ -8,10 +8,9 @@ div.primary
           div.post__content
             p
               ul
+              - @books.each do |book|
                 li
-                  a 鹿鼎记
-                li
-                  a 血色黄昏
+                  = link_to book.name, book_path(book)
       div.card.card--3col
         article.post.card__box.block
           h1.post__title.title-excerpt

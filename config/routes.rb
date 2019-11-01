@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :jugglers
     resources :categories
     resources :articles
+    resources :books
 
     # Admin root
     root to: 'application#index'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
 
   # Front routes start
   resources :articles, :only => [:show, :index]
+  resources :books, :only => [:show, :index]
   resources :categories, :only => [:show]
   devise_for :users, only: [:session, :registration], path: 'session',
              path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
